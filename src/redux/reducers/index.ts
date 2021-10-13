@@ -1,4 +1,10 @@
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
+import { combineReducers } from 'redux'
+import tweetsReducer from './tweetsReducer'
 
-export const store = createStore(null, {}, applyMiddleware(thunk))
+const reducers = combineReducers({
+  tweets: tweetsReducer
+})
+
+export default reducers
+
+export type RootState = ReturnType<typeof reducers>
